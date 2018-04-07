@@ -3,9 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+require('dotenv').config()
+
+mongoose.connect(`mongodb://admin:${process.env.DB_PASS}@ds237669.mlab.com:37669/todo_fancy`,(err) => {
+  if(err) throw err
+  console.log('Connected DB Success')
+})
 
 var app = express();
 
