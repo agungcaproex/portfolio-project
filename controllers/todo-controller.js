@@ -2,18 +2,16 @@ const Todo = require('../models/todo')
 
 module.exports = {
     create: (req, res) => {
-        let addTodo = new Todo({
+        Todo.create({
             task: req.body.task,
             list: req.body.list,
             status: req.body.status,
             userId: req.body.userId
         })
-        
-        addTodo.save()
-        .then(response => {
+        .then(dataTodo => {
             res.status(200).json({
                 message: 'Add Data Success',
-                data: response
+                data: dataTodo
             })
         })
         .catch(err => {
