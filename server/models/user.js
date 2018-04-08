@@ -27,7 +27,7 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'Password cannot be empty'],
         minlength: [8, 'Password length minimum 8 character'],
-        validate: [/\d/, 'MUST NUMERIC']
+        validate: [/\d/, 'Password MUST HAVE CONTAIN NUMERIC']
     }
 
 }, {

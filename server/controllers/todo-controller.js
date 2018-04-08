@@ -1,12 +1,13 @@
 const Todo = require('../models/todo')
 
+
 module.exports = {
     create: (req, res) => {
         Todo.create({
             task: req.body.task,
             list: req.body.list,
             status: req.body.status,
-            userId: req.body.userId
+            userId: req.decoded.id
         })
         .then(dataTodo => {
             res.status(200).json({
