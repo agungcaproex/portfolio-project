@@ -26,6 +26,10 @@
         <todo-header :datauser="dataUser"></todo-header>
         <todo-login></todo-login>
         <todo-register></todo-register>
+        <h3 class="text-primary" v-if="dataUser.userId != null"> Welcome.... {{dataUser.name}} </h3>
+        <todo-form v-if="dataUser.userId != null" :datauser="dataUser"></todo-form>
+        <todo-list v-if="dataUser.userId != null" :datatodo=todos :datauser=dataUser></todo-list>
+        <!-- <h4> {{dataUser}} </h4> -->
         
 
        
@@ -37,6 +41,8 @@
     <script src="./js/comp-header.js"></script>
     <script src="./js/comp-login.js"></script>
     <script src="./js/comp-register.js"></script>
+    <script src="./js/comp-form.js"></script>
+    <script src="./js/comp-todolist.js"></script>
     <script src="./js/root.js"></script>
     
 </body>

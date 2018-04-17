@@ -45,9 +45,9 @@ Vue.component('todo-login', {
                     localStorage.setItem('email', response.data.data.email)
                     localStorage.setItem('token', response.data.data.token)
                     localStorage.setItem('name', response.data.data.name)
-                    // location.reload()
+                    location.reload()
                     alert('Login Success')
-                    window.location.href="home.html"
+                    // window.location.href="home.html"
                 } else {
                     alert('Login Failed')
                 }

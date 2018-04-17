@@ -7,11 +7,11 @@ Vue.component('todo-header', {
                 <a class="navbar-brand" href="#">To Do Fancy</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html" v-if="!datauser">Home</a></li>
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <button type="button" v-if="datauser.email" class="btn btn-default btn-sm"> Welcome: <span class="badge"> {{datauser.name}} </span></button>
+                <button type="button" v-if="datauser.email" class="btn btn-default btn-sm"> email: <span class="badge"> {{datauser.email}} </span></button>
                 <fb:login-button v-if="!datauser.userId" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
                 <button type="button" v-if="!datauser.userId" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#registerModal">Register</button>
                 <button type="button" v-if="!datauser.userId" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginModal" >Login</button>

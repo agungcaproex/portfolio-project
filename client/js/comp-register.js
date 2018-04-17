@@ -58,9 +58,9 @@ Vue.component('todo-register', {
                     localStorage.setItem('email', response.data.data.email)
                     localStorage.setItem('token', response.data.data.token)
                     localStorage.setItem('name', response.data.data.name)
-                    // location.reload()
+                    location.reload()
                     alert('Register Success')
-                    window.location.href="home.html"
+                    // window.location.href="home.html"
                 } else {
                     alert('Register Failed')
                 }

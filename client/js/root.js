@@ -1,7 +1,7 @@
 var vm = new Vue({
     el: '#app',
     data: {
-        newTask: '',
+        // newTask: '',
         statusTask: '',
         todos: [],
         dataUser: {
@@ -12,72 +12,14 @@ var vm = new Vue({
         }
     },
     methods: {
-        createTodo: function(){
-            axios({
-                method: 'post',
-                url: `http://localhost:4000/todos/create`,
-                headers: {
-                    token: this.dataUser.token
-                },
-                data: {
-                    task: this.newTask,
-                    userId: this.dataUser.userId
-                }
-            })
-            .then(response => {
-                location.reload()
-                console.log('CREATE SUCCESS =====', response)
-            })
-            .catch(err => {
-                console.log('FAILED======', err)
-            })
-        },
         
-        updateTodo: function(task){
-            let newStatus = ''
-            if(task.status == 'Completed'){
-                newStatus += 'Uncomplete'
-            } else {
-                newStatus += 'Completed'
-            }
-            axios({
-                method: 'put',
-                url: `http://localhost:4000/todos/update/${task._id}`,
-                headers: {
-                    token: this.dataUser.token
-                },
-                data: {
-                    status: newStatus,
-                }
-            })
-            .then(response => {
-                location.reload()
-                console.log('UPDATE SUCCESS =====', response)
-            })
-            .catch(err => {
-                console.log('FAILED======', err)
-            })
-        },
-
-        deleteTodo: function(task_id){
-            axios({
-                method: 'delete',
-                url: `http://localhost:4000/todos/delete/${task_id}`,
-                headers: {
-                    token: this.dataUser.token
-                },
-            })
-            .then(response => {
-                location.reload()
-                console.log('DELETE SUCCESS =====', response)
-            })
-            .catch(err => {
-                console.log('FAILED======', err)
-            })
-        },
     },
 
-    created() {
+    created: function(){
+        // if(dataUser){
+        //     window.location.href="home.html"
+        // }
+
         axios.get(`http://localhost:4000/todos/search`, {
             headers: {
                 token: this.dataUser.token
