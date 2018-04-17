@@ -11,6 +11,7 @@ let emailChecker = [
 ]
 
 const userSchema = new Schema({
+    id_fb: String,
     first_name: {
         type: String,
         required: [true, 'First Name cannot be empty']

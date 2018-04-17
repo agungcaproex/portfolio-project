@@ -4,9 +4,9 @@ const Todo = require('../models/todo')
 module.exports = {
     create: (req, res) => {
         console.log(req.decoded)
+        console.log('====', req.body)
         Todo.create({
             task: req.body.task,
-            list: req.body.list,
             status: req.body.status,
             userId: req.decoded.userId
         })
@@ -61,10 +61,12 @@ module.exports = {
     },
 
     update: (req, res) => {
+        console.log('DECODED====', req.decoded)
+        console.log('BODY===', req.body)
+        console.log('PARAMS====', req.params)
         Todo.findByIdAndUpdate(req.params.id, {
-            task: req.body.task,
-            list: req.body.list,
-            userId: req.decoded.id
+            status: req.body.status,
+            userId: req.decoded.userId
         })
         .then(dataTodo => {
             res.status(200).json({
