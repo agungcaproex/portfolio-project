@@ -20,7 +20,7 @@ var vm = new Vue({
         //     window.location.href="home.html"
         // }
 
-        axios.get(`http://localhost:4000/todos/search`, {
+        axios.get(`http://backend1.agungcaproex.com:4000/todos/search`, {
             headers: {
                 token: this.dataUser.token
             }

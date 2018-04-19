@@ -55,7 +55,7 @@ Vue.component('todo-list', {
             }
             axios({
                 method: 'put',
-                url: `http://localhost:4000/todos/update/${task._id}`,
+                url: `http://backend1.agungcaproex.com:4000/todos/update/${task._id}`,
                 headers: {
                     token: this.datauser.token
                 },
@@ -64,7 +64,15 @@ Vue.component('todo-list', {
                 }
             })
             .then(response => {
-                location.reload()
+                // location.reload()
+                let newTodo = []
+                this.datatodo.forEach(todo => {
+                    if(todo._id == `${task._id}`){
+                        todo.status = newStatus
+                    }
+                    newTodo.push(todo)
+                });
+                this.datatodo = newTodo
                 console.log('UPDATE SUCCESS =====', response)
             })
             .catch(err => {
@@ -76,13 +84,18 @@ Vue.component('todo-list', {
             console.log('=========MASUK SINI====',this.datauser)
             axios({
                 method: 'delete',
-                url: `http://localhost:4000/todos/delete/${task_id}`,
+                url: `http://backend1.agungcaproex.com:4000/todos/delete/${task_id}`,
                 headers: {
                     token: this.datauser.token
                 },
             })
             .then(response => {
-                location.reload()
+                // location.reload()
+                let currentTodo = this.datatodo.filter(listTodo => listTodo._id != `${task_id}`)
+                this.datatodo = currentTodo
+
+                // let index = this.datatodo.indexOf(`${task_id}`)
+
                 console.log('DELETE SUCCESS =====', response)
             })
             .catch(err => {
@@ -90,19 +103,5 @@ Vue.component('todo-list', {
             })
         },
     },
-    created(){
-        // axios.get(`http://localhost:4000/todos/search`, {
-        //     headers: {
-        //         token: this.dataUser.token
-        //     }
-        // })
-        // .then(response => {
-        //     console.log('MASUK=====', response)
-        //     this.todos = response.data.data
-        // })
-        // .catch(err => {
-        //     console.log('ERROR======',err)
-        // })
-    }
     
 })

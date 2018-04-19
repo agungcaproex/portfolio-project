@@ -13,11 +13,11 @@ Vue.component('todo-login', {
                 <div class="modal-body">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input id="email" v-model="email" type="email" class="form-control" name="email" placeholder="Email">
+                        <input id="email" v-model="email" type="email" class="form-control" name="email" @keyup.enter="userLogin" placeholder="Email">
                         </div>
                         <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" v-model="password" type="password" class="form-control" name="password" placeholder="Password">
+                        <input id="password" v-model="password" type="password" class="form-control" name="password" @keyup.enter="userLogin" placeholder="Password">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -34,7 +34,7 @@ Vue.component('todo-login', {
     },
     methods: {
         userLogin: function(){
-            axios.post('http://localhost:4000/users/login', {
+            axios.post('http://backend1.agungcaproex.com:4000/users/login', {
                 email: this.email,
                 password: this.password
             })

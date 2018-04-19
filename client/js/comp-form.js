@@ -1,5 +1,5 @@
 Vue.component('todo-form', {
-    props: ['datauser'],
+    props: ['datauser', 'datatodo'],
     template: `
     <section class="content">
         <div class="row">
@@ -9,7 +9,7 @@ Vue.component('todo-form', {
                         <h1 class="col-md-8 col-md-offset-4">Add new to do !</h1>
                         <div class="form-group col-md-8 col-md-offset-2">
                             <label>Your Task List</label>
-                            <input type="text" class="form-control" v-model="newTask" placeholder="Task List ...">
+                            <input type="text" class="form-control" v-model="newTask" @keyup.enter="createTodo()" placeholder="Task List ...">
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2">
                             <button type="submit" class="btn btn-primary" @click="createTodo()">Add</button>
@@ -27,7 +27,7 @@ Vue.component('todo-form', {
         createTodo: function(){
             axios({
                 method: 'post',
-                url: `http://localhost:4000/todos/create`,
+                url: `http://backend1.agungcaproex.com:4000/todos/create`,
                 headers: {
                     token: this.datauser.token
                 },
@@ -37,7 +37,8 @@ Vue.component('todo-form', {
                 }
             })
             .then(response => {
-                location.reload()
+                // location.reload()
+                this.datatodo.push(response.data.data)
                 console.log('CREATE SUCCESS =====', response)
             })
             .catch(err => {

@@ -8,7 +8,7 @@ function statusChangeCallback(response) {
       // testAPI();
       axios({
         method: 'post',
-        url: 'http://localhost:4000/users/loginfb',
+        url: 'http://backend1.agungcaproex.com:4000/users/loginfb',
         headers: {
           fb_token: response.authResponse.accessToken
         }
@@ -19,6 +19,7 @@ function statusChangeCallback(response) {
         localStorage.setItem('email', res.data.data.email)
         localStorage.setItem('name', res.data.data.name)
         location.reload()
+        alert('Login Success')
       })
 
 

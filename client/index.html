@@ -27,7 +27,7 @@
         <todo-login></todo-login>
         <todo-register></todo-register>
         <h3 class="text-primary" v-if="dataUser.userId != null"> Welcome.... {{dataUser.name}} </h3>
-        <todo-form v-if="dataUser.userId != null" :datauser="dataUser"></todo-form>
+        <todo-form v-if="dataUser.userId != null" :datatodo=todos :datauser="dataUser"></todo-form>
         <todo-list v-if="dataUser.userId != null" :datatodo=todos :datauser=dataUser></todo-list>
         <!-- <h4> {{dataUser}} </h4> -->
         
