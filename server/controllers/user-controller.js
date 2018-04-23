@@ -84,6 +84,7 @@ module.exports = {
             })
             .exec()
             .then(dataUser => {
+                console.log('=====', dataUser)
                 if(dataUser){
                     let token = jwt.sign({userId: dataUser._id}, process.env.SECRET)
                     res.status(200).json({

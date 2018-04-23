@@ -18,7 +18,7 @@ function statusChangeCallback(response) {
         localStorage.setItem('token', res.data.data.token)
         localStorage.setItem('email', res.data.data.email)
         localStorage.setItem('name', res.data.data.name)
-        location.reload()
+        // location.reload()
         alert('Login Success')
       })
 
