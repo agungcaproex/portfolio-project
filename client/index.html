@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo Fancy</title>
+
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    
+
+</head>
+<body>
+    <div id="app">
+        <todo-header :datauser="dataUser"></todo-header>
+        <todo-login></todo-login>
+        <todo-register></todo-register>
+        <h3 class="text-primary" v-if="dataUser.userId != null"> Welcome.... {{dataUser.name}} </h3>
+        <todo-form v-if="dataUser.userId != null" :datatodo=todos :datauser="dataUser"></todo-form>
+        <todo-list v-if="dataUser.userId != null" :datatodo=todos :datauser=dataUser></todo-list>
+        <!-- <h4> {{dataUser}} </h4> -->
+        
+
+       
+
+    </div>
+
+    <script src="./js/login-fb.js"></script>
+    <!-- Vue Component -->
+    <script src="./js/comp-header.js"></script>
+    <script src="./js/comp-login.js"></script>
+    <script src="./js/comp-register.js"></script>
+    <script src="./js/comp-form.js"></script>
+    <script src="./js/comp-todolist.js"></script>
+    <script src="./js/root.js"></script>
+    
+</body>
+</html>

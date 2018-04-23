@@ -1,0 +1,73 @@
+/* @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'); */
+/* @import url('http://cdn.phpoll.com/css/animate.css'); */
+
+
+/* body
+  background-color #abc
+
+*, h1, button
+  font-family: 'Nunito', sans-serif; */
+ 
+.fade-enter-active, .fade-leave-active
+  transition: opacity .5s
+
+.fade-enter, .fade-leave-active
+  opacity: 0
+
+.tasks
+  width 100%
+  max-width 45rem
+  padding 1em
+  margin 1em auto
+  overflow auto
+  background-color white
+  box-shadow 0px .25rem 1rem rgba(black, .25)
+
+.tasks__list
+  clear both
+
+.tasks__item
+  margin-bottom .5em
+  position relative
+
+.tasks__item__toggle
+  cursor pointer
+  width 100%
+  text-align left
+  padding .85em 2.25em .85em 1em
+  background-color rgba(black, .05)
+  border 1px solid rgba(black, .1)
+
+.tasks__item__toggle:hover
+  background-color rgba(black, .1)
+  border-color rgba(black, .15)
+
+.tasks__item__toggle--completed
+  text-decoration line-through
+  background-color rgba(green, .15)
+  border-color rgba(green, .2)
+
+.tasks__item__toggle--completed:hover
+  background-color rgba(green, .25)
+  border-color rgba(green, .3)
+
+.tasks__item__remove
+  position absolute
+  height 100%
+  top 50%
+  right 0
+  transform translateY(-50%)
+.tasks__item__remove i
+  vertical-align middle
+
+.fb-login-button {
+	margin-top: 7px;
+	margin-left: 6px;
+}
+
+.btn-facebook{color:#fff;background-color:#3b5998;border-color:rgba(0,0,0,0.2)}.btn-facebook:focus,.btn-facebook.focus{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:hover{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}.btn-facebook:active:hover,.btn-facebook.active:hover,.open>.dropdown-toggle.btn-facebook:hover,.btn-facebook:active:focus,.btn-facebook.active:focus,.open>.dropdown-toggle.btn-facebook:focus,.btn-facebook:active.focus,.btn-facebook.active.focus,.open>.dropdown-toggle.btn-facebook.focus{color:#fff;background-color:#23345a;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{background-image:none}
+.btn-facebook.disabled:hover,.btn-facebook[disabled]:hover,fieldset[disabled] .btn-facebook:hover,.btn-facebook.disabled:focus,.btn-facebook[disabled]:focus,fieldset[disabled] .btn-facebook:focus,.btn-facebook.disabled.focus,.btn-facebook[disabled].focus,fieldset[disabled] .btn-facebook.focus{background-color:#3b5998;border-color:rgba(0,0,0,0.2)}
+.btn-facebook .badge{color:#3b5998;background-color:#fff}

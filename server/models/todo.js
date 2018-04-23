@@ -3,8 +3,10 @@ const Schema = mongoose.Schema
 
 const todoSchema = new Schema({
     task: String,
-    list: [String],
-    status: Boolean,
+    status: {
+        type: String,
+        default: 'Uncomplete'
+    },
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'

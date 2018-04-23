@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo Fancy</title>
+
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <todo-header :datauser="dataUser"></todo-header>
+        <h3 class="text-primary"> Welcome...  {{ dataUser.name }} </h3>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box box-warning">
+                        <div class="box-body">
+                            <h1 class="col-md-8 col-md-offset-4">Add new to do !</h1>
+                            <div class="form-group col-md-8 col-md-offset-2">
+                                <label>Your Task List</label>
+                                <input type="text" class="form-control" v-model="newTask" placeholder="Task List ...">
+                            </div>
+                            <div class="form-group col-md-8 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary" @click="createTodo()">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box box-warning">
+                        <div class="box-body">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th style="text-align:center;">Todo Task</th>
+                                    <th style="text-align:center;">Task Status</th>
+                                    <th style="text-align:center;">Action</th>
+                                </tr>
+                                <tr v-for="todo in todos">
+                                        <td> {{ todo.task }} </td>
+                                        <td class="bg-danger" v-if="todo.status == 'Uncomplete'"> 
+                                           <strong class="text-danger"> {{ todo.status }} </strong> 
+                                        </td>
+                                        <td class="bg-success" v-if="todo.status == 'Completed'"> 
+                                            <p class="text-success"> {{ todo.status }} </p> 
+                                            </td>
+                                        <td>
+                                        <button v-if="todo.status == 'Uncomplete'"  @click="updateTodo(todo)" type="button" class="btn btn-success btn-sm">
+                                            <span class="glyphicon glyphicon-ok"></span> Completed
+                                        </button>
+                                        <button v-if="todo.status == 'Completed'"  @click="updateTodo(todo)" type="button" class="btn btn-warning btn-sm">
+                                            <span class="glyphicon glyphicon-remove"></span> Uncomplete
+                                        </button>
+                                        <!-- <button class="btn btn-primary btn-sm" type="button">
+                                            <span class="glyphicon glyphicon-floppy-disk"></span> Save 
+                                        </button> -->
+                                        <button class="btn btn-danger btn-sm" @click="deleteTodo(todo._id)" >
+                                            <span class="glyphicon glyphicon-trash"></span> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="./js/comp-header.js"></script>
+    <script src="./js/comp-task.js"></script>
+    <script src="./js/root.js"></script>
+</body>
+</html>

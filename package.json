@@ -6,11 +6,14 @@
     "start": "node ./server/bin/www"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^2.0.0",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
     "debug": "~2.6.9",
     "dotenv": "^5.0.1",
     "express": "~4.16.0",
+    "fb": "^2.0.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.2.1",
@@ -18,6 +21,7 @@
     "mongoose-validate": "git://github.com/RGBboy/mongoose-validate.git",
     "mongoose-validator": "^2.0.2",
     "morgan": "~1.9.0",
+    "nodemailer": "^4.6.4",
     "validator": "^9.4.1"
   }
 }
