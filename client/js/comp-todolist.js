@@ -61,6 +61,8 @@ Vue.component('todo-list', {
                 },
                 data: {
                     status: newStatus,
+                    email: this.datauser.email,
+                    task: task.task
                 }
             })
             .then(response => {

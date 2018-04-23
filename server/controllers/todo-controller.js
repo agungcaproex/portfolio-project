@@ -1,5 +1,5 @@
 const Todo = require('../models/todo')
-
+const mailer = require('./mailer')
 
 module.exports = {
     create: (req, res) => {
@@ -69,6 +69,7 @@ module.exports = {
             userId: req.decoded.userId
         })
         .then(dataTodo => {
+            mailer.sendMail(req.body.email, req.body.task)
             res.status(200).json({
                 message: 'Update Data Success',
                 data: dataTodo
